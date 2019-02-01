@@ -1,5 +1,6 @@
 ---
 - name: install and uninstall apache web server
+  hosts: all
   become: yes
   gather_facts: true
   vars:
