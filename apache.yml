@@ -1,0 +1,33 @@
+---
+- name: install and uninstall apache web server
+  become: yes
+  gather_facts: true
+  vars:
+    apache_packages:
+      - httpd
+      - mod_wsgi
+  tasks:
+    
+    # Remove apache packages
+    - name: remove apache web server
+      yum:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ apache_packages }}"
+     
+    # Install apache packages
+    - name: install apache
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - "{{ apache_packages }}"
+
+    # Restart apache service
+    - name: restart apache service
+      service:
+        name: httpd
+        state: restarted
+        enabled: yes
+... 
