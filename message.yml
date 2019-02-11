@@ -1,0 +1,11 @@
+---
+- name: Hello World Message
+  hosts: all
+  vars:
+   - message: Hello World!
+  
+  tasks:
+    - name: Show a message
+      debug:
+        msg: "{{ message }}"
+...
