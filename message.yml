@@ -1,8 +1,9 @@
 ---
 - name: Hello World Message
   hosts: all
+  gather_facts: no
   vars:
-   - message: Hello World!
+   - message: Red Hat Course - Ansible Tower Implementation
   
   tasks:
     - name: Show a message
